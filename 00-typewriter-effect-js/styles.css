@@ -1,0 +1,40 @@
+:root {
+	--highlight-color: #C2185B;
+	--highlight-bg: #FCE4EC
+}
+body {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Montserrat';
+}
+h1 {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	line-height: 50px;
+	font-size: 30px;
+}
+
+span.highlight {
+	background: var(--highlight-bg);
+	color: var(--highlight-color);
+	padding: 5px;
+}
+span.pulse {
+	color: var(--highlight-color);
+	animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(1.04);
+		opacity: 1;
+	}
+}
