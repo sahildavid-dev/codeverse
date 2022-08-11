@@ -1,0 +1,14 @@
+:root {
+	--highlight-color: #C2185B;
+	--highlight-bg: #FCE4EC
+}
+body {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Montserrat';
+	margin: 0;
+	padding: 0;
+}

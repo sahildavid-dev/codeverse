@@ -1,5 +1,5 @@
 # Codeverse
-_Author: Sahil David, Last updated: 22/07/22_
+_Author: Sahil David, Last updated: 11/08/22_
 
 Codeverse is a universe or collection of various code snippets, that I have gathered over time during my development work on various projects. 
 
@@ -9,6 +9,7 @@ Sharing is the key. We learn more when we learn together. Therefore, I include a
 ## Table of Content
 
 - [00 - Typewriter Effect JavaScript Animation](/00-typewriter-effect-js/)
+- [01 - Matrix Rain Effect](/01-matrix-rain/)
 
 ---
 ## Contribute
