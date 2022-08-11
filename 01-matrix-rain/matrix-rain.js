@@ -1,15 +1,15 @@
 /**
- * Function for matrix rain effect.
- * 
- * Steps to use:
- * 1) Add the configurations, specify various property for the rain
- * 2) Call the instance of Matrix function
+ * JavaScript library for creating Matrix Rain Animation.
+ * The library exposes a class which is used to draw and resize the effect
+ * @module Matrix
  * 
  * Author: Sahil David <sahildavid.dev@gmail.com>
  */
 
+// Default symbols to use
 const MATRIX_SYMBOLS = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
+// Default options parameter
 const MATRIX_DEFAULTS = {
 	selector: 'body',
 	backgroundColor: '#010101',
@@ -23,7 +23,15 @@ const MATRIX_DEFAULTS = {
 	highlightTail: false // expects highlight object instead { color, threshold }
 };
 
+// Helper functions object
 const MATRIX_HELPERS = {
+	/**
+	 * @name convertHexToRGB
+	 * Function to convert hex code into rgb
+	 * 
+	 * @param {string} hex - hex code to convert
+	 * @returns {object} // rgb object as { r: value, g: value, b: value }
+	 */
 	convertHexToRGB (hex) {
 		if (!(hex && hex.length <= 7)) {
 			throw '[ERR]: No hex code supplied for rgb conversion';
@@ -34,6 +42,13 @@ const MATRIX_HELPERS = {
 			b: parseInt(hex[5] + hex[6], 16)
 		}
 	},
+	/**
+	 * @name randomNumber
+	 * Function to generate number within a given range.
+	 * 
+	 * @param {Array | number} range - Range to find random number from, if only one number (max) is provided, min defaults to 0
+	 * @returns { number } - random generated number
+	 */
 	randomNumber (range = [0, 1]) {
 		let min = 0;
 		let max;
@@ -48,11 +63,18 @@ const MATRIX_HELPERS = {
 }
 
 /**
- * Matrix Class
+ * Matrix Class for applying falling rain effect
  */
 class Matrix {
+	/**
+	 * @constructor
+	 * Initialise all the data members and required flow
+	 * 
+	 * @param {Object} params - options parameter to modify animation behavior
+	 */
 	constructor (params = {}) {
 		params = Object.assign({}, MATRIX_DEFAULTS, params);
+
 		this.MATRIX_SYMBOLS = params.matrix_symbols || MATRIX_SYMBOLS;
 		this.RANDOM_FACTOR = 0.95;
 
@@ -82,6 +104,12 @@ class Matrix {
 		this.setInterval = params.setInterval;
 	}
 
+	/**
+	 * @name #intialiseCanvas
+	 * Method to initialise canvas for drawing
+	 * 
+	 * @returns - canvas 2d context
+	 */
 	#intialiseCanvas () {
 		const _element = document.querySelector(this.selector);
 		if (!_element) {
@@ -100,6 +128,10 @@ class Matrix {
 		return canvas.getContext('2d');
 	}
 
+	/**
+	 * @name #canvasSize
+	 * Method to apply canvas dimension based on best possible scenario
+	 */
 	#canvasSize () {
 		const _element = document.querySelector(this.selector);
 		if (!_element) {
@@ -117,6 +149,12 @@ class Matrix {
 		this.height = _canvas.height;
 	}
 
+	/**
+	 * @name #initialiseSymbols
+	 * Method to initialise symbols in columns
+	 * 
+	 * @returns [Array] - Returns array of draw methods for synbol in each column
+	 */
 	#initialiseSymbols () {
 		const _symbols = [];
 		for (let i = 0; i < this.columns; i++) {
@@ -146,6 +184,12 @@ class Matrix {
 		return _symbols;
 	}
 
+	/**
+	 * @name #canvasGradient
+	 * Method to draw linear gradient on canvas
+	 * 
+	 * @returns - gradient object
+	 */
 	#canvasGradient () {
 		const { position, stopColors } = this.gradient;
 
@@ -161,6 +205,10 @@ class Matrix {
 		return _gradient;
 	}
 
+	/**
+	 * @name #drawSymbols
+	 * Method to draw Symbol/Character for each column & row
+	 */
 	#drawSymbols () {
 		const _fadeFactor = this.fadeRandom ? MATRIX_HELPERS.randomNumber(this.fadeRandom) : this.fadeFactor;
 		const _backgroundRgb = MATRIX_HELPERS.convertHexToRGB(this.backgroundColor);
@@ -172,6 +220,13 @@ class Matrix {
 		this.symbols.forEach(_ => _());
 	}
 
+	/**
+	 * @name draw
+	 * Main method to draw characters on canvas
+	 * 
+	 * @param {number} timestamp - timestamp of running animation, passed byrequestAnimationFrame
+	 * @returns this - instance of the class
+	 */
 	draw (timestamp = 0) {
 		if (this.setInterval) {
 			console.info(`[INFO]: Rain effect applied using setInterval - ${this.setInterval}`);
@@ -198,6 +253,10 @@ class Matrix {
 		return this;
 	}
 
+	/**
+	 * @name resize
+	 * Method to reset parameter on resize - supporting responsiveness
+	 */
 	resize () {
 		window.addEventListener('resize', () => {
 			this.#canvasSize();
