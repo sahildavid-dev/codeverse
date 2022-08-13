@@ -265,3 +265,4 @@ class Matrix {
 		});
 	}
 }
+window.Matrix = Matrix;
