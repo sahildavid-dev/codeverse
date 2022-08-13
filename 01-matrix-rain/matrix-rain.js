@@ -115,6 +115,7 @@ class Matrix {
 		if (!_element) {
 			throw `[ERR]: No DOM element found for selector '${this.selector}'`;
 		}
+		_element.innerHTML = '';
 		
 		// Add Canvas Element
 		const canvas = document.createElement('canvas');
@@ -137,7 +138,7 @@ class Matrix {
 		if (!_element) {
 			throw `[ERR]: No DOM element found for selector '${this.selector}'`;
 		}
-		
+
 		const _canvas = document.querySelector(`${this.selector} canvas`);
 		if (!_canvas) {
 			throw `[ERR]: No canvas found for selector '${this.selector} canvas'`;
@@ -198,7 +199,6 @@ class Matrix {
 		let _gradient = this.ctx.createLinearGradient(position.x, position.y, _width, _height);
 
 		stopColors.forEach((_) => {
-			console.log(_);
 			_gradient.addColorStop(_.position, _.color);
 		});
 
@@ -265,4 +265,6 @@ class Matrix {
 		});
 	}
 }
+
+// Exposing class for different framework compatibility
 window.Matrix = Matrix;

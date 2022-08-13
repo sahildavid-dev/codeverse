@@ -57,7 +57,7 @@ While creating the instance `new Matrix({})` you can pass the following options 
 		position: {
 			x: 0, // number
 			y: 0, // number
-			width: '{{__CANVAS_WIDTH}}' // __CANVAS_WIDTH indicates to use canvas width, you can also pass a specific number
+			width: '{{__CANVAS_WIDTH}}', // __CANVAS_WIDTH indicates to use canvas width, you can also pass a specific number
 			height: '{{__CANVAS_HEIGHT}}' // __CANVAS_HEIGHT indicates to use canvas height, you can also pass a specific number
 		},
 		stopColors: [ // Array of colors to create gradient for
