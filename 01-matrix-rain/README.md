@@ -8,7 +8,7 @@ Checkout this Matrix Rain Effect animation using HTML Canvas & JavaScript. The s
 ## Usage
 
 ```html
-	<script src="./matrix-rain.js"></script>
+	<script src="https://cdn.stardustdesignsystem.com/js/matrix-rain.js"></script>
 	<script>
 		const matrix = new Matrix(options) // Please see below for configuration options
 
