@@ -1,6 +1,8 @@
 /**
  * Function to apply typewriter animation.
  * Also, updates the word after the next animation
+ * 
+ * Author: Sahil David <sahildavid.dev@gmail.com>
  */
 
 // Word to update 
