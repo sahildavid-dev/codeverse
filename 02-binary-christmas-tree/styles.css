@@ -1,0 +1,100 @@
+:root {
+	--dark: #000000;
+	--light: #e6dcb1;
+	--white: #ffffff;
+	--green: #53ce23;
+	--red: #cd1d0b;
+	--yellow: #f9ff10;
+}
+
+/* Base Canvas Setup */
+body {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0; 
+    padding: 0;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: var(--dark);
+}
+main {
+	position: relative;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	width: 100%;
+	max-width: 720px;
+	height: 100%;
+}
+
+/* Tree Style */
+.tree {
+    color: var(--light);
+}
+.tree__canvas > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+}
+.tree__canvas span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1px;
+    width: 10px;
+    color: var(--green);
+}
+.tree__canvas span.one {
+    color: var(--red);
+}
+
+.tree__trunk {
+    text-align: center;
+    color: var(--yellow);
+}
+.tree__trunk > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tree__trunk span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1px;
+    width: 8px;
+}
+.tree__text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+.tree__text strong {
+    font-size: 4em;
+    line-height: 1em;
+}
+.tree__text span {
+    font-size: 2em;
+    letter-spacing: 3px;
+}
+
+/* Stars */
+.star {
+	position: absolute;
+    top: -20px;
+    left: 10%;
+	width: 100px;
+    height: 100px;
+    background: url('./stars.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.star__right {
+    top: 0;
+    left: 80%;
+}

@@ -10,6 +10,7 @@ Sharing is the key. We learn more when we learn together. Therefore, I include a
 
 - [00 - Typewriter Effect JavaScript Animation](/00-typewriter-effect-js/)
 - [01 - Matrix Rain Effect](/01-matrix-rain/)
+- [02 - Binary Christmas Tree](/02-binary-christmas-tree/)
 
 ---
 ## Contribute
