@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Test</title>
+</head>
+<body>
+	<select onchange="handleSelect()">
+		<option value="-1">--Select Value--</option>
+		<option value="item1">Item 1</option>
+		<option value="item2">Item 2</option>
+		<option value="item3">Item 3</option>
+		<option value="item4">Item 4</option>
+	</select>
+
+	<div>
+		<h2>Display</h2>
+		<div class="results"></div>
+	</div>
+
+	<script>
+		let jsonData = [];
+
+		function handleSelect () {
+			const results = document.querySelector('.results');
+			const selectElm = document.querySelector('select');
+
+			const record = jsonData.find((_) => _.key === selectElm.value);
+			results.innerHTML = record ? record.value : 'No Data';
+		}
+
+		(async () => {
+			const response = await fetch('./arrayData.json');
+			jsonData = await response.json(); 
+		})();
+	</script>
+</body>
+</html>

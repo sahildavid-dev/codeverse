@@ -1,0 +1,18 @@
+[
+	{
+		"key": "item1",
+		"value": "This is my value 1"
+	},
+	{
+		"key": "item2",
+		"value": "This is my value 2"
+	},
+	{
+		"key": "item3",
+		"value": "This is my value 3"
+	},
+	{
+		"key": "item4",
+		"value": "This is my value 4"
+	}
+]
