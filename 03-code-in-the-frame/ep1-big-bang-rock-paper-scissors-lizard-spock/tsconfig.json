@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"module": "none",
+		"outFile": "./dist",
+		"strict": true,
+		"skipLibCheck": true,
+		"esModuleInterop": false
+	},
+	"include": ["rpsls.ts"]
+}

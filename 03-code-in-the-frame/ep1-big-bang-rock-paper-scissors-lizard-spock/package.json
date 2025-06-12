@@ -1,0 +1,22 @@
+{
+	"name": "ep1-big-bang-rock-paper-scissors-lizard-spock",
+	"version": "1.0.0",
+	"main": "rpsls.js",
+	"scripts": {
+		"start": "tsx rpsls.ts",
+		"build": "ntsc rpsls.ts --outDir ./dist",
+		"test": "vitest",
+		"coverage": "vitest run --coverage"
+	},
+	"author": "Sahil David",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/node": "^22.15.31",
+		"@vitest/coverage-v8": "^3.2.0",
+		"tsx": "^4.19.4",
+		"vitest": "^3.2.3"
+	},
+	"dependencies": {
+		"ntypescript": "1.201706190042.1"
+	}
+}
